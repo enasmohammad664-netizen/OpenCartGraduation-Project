@@ -74,7 +74,7 @@ public class RegisterPage {
     }
     public RegisterPage invalidRegister() {
 
-        Assert.assertEquals(getMessage(), "You Account Has Been Created!");
+        Assert.assertEquals(getMessage(), "Warning: E-Mail Address is already registered!");
         return this;
     }
 }

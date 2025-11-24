@@ -38,7 +38,7 @@ public class OpenCartTests {
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         driver = new ChromeDriver(options);
         new RegisterPage(driver).navigateToRegisterPage();
-        new
+
     }
 
     @AfterTest
