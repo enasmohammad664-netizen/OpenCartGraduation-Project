@@ -6,6 +6,14 @@ import org.openqa.selenium.WebDriver;
 public class ElementActions {
     private ElementActions() {
     }
+    // للتحقق من ظهور عنصر
+    public static boolean isElementDisplayed(WebDriver driver, By locator) {
+        try {
+            return driver.findElement(locator).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
     public static void sendData(WebDriver driver,By locator, String data){
         Waits.waitElementToBeVisible(driver, locator);
 //        Scrolling.scrolling(driver, locator);

@@ -1,5 +1,6 @@
 package com.OpenCart.tests;
 
+import com.OpenCart.Pages.HomePage;
 import com.OpenCart.Pages.LoginPage;
 import com.OpenCart.Pages.RegisterPage;
 import org.openqa.selenium.PageLoadStrategy;
@@ -46,4 +47,31 @@ public class OpenCartTests {
     public void tearDown() {
 
     }
+
+    @Test
+    public void resetPasswordValidEmail() {
+        new LoginPage(driver)
+                .resetPassword("validemail@gmail.com");
+
+        String msg = new LoginPage(driver).getResetMessage();
+        System.out.println(msg);
+    }
+    @Test
+    public void resetPasswordInvalidEmail() {
+        new LoginPage(driver)
+                .resetPassword("wrongemail@gmail.com");
+
+        String msg = new LoginPage(driver).getResetMessage();
+        System.out.println(msg);
+    }
+    @Test
+    public void searchValidProduct() {
+        new HomePage(driver)
+                .navigateToHomePage()
+                .searchForProduct("iPhone")
+                .verifyProductsAreDisplayed()
+                .verifySearchResult("iPhone");
+    }
+
+
 }

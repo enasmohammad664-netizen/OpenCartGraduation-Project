@@ -54,7 +54,7 @@ return this;
         return driver.findElement(resetMessage).getText();
     }
 
-    // Convenience Method 
+    // Convenience Method
     public LoginPage resetPassword(String email) {
         clickForgottenPassword();
         enterResetEmail(email);
