@@ -18,7 +18,7 @@ public class ElementActions {
     }
     public static String getText(WebDriver driver,By locator){
         Waits.waitElementToBeClickable(driver, locator);
-        Scrolling.scrolling(driver, locator);
+//        Scrolling.scrolling(driver, locator);
        return driver.findElement(locator).getText();
     }
 }

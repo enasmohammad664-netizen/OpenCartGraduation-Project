@@ -26,8 +26,9 @@ public class RegisterPage {
     private final By lastName = By.id("input-lastname");
     private final By password = By.id("input-password");
     private final By eMail = By.id("input-email");
-    private final By submitButton = By.cssSelector(".text-end>[type=submit]");
+    private final By submitButton = By.cssSelector("#form-register > .text-end>[type=submit]");
     private final By successFullMessage = By.cssSelector("#content > h1");
+    private final By checkBox = By.cssSelector("#form-register > div > div > input");
 
     //actions > Wait > scrolling> findElement > sendKeys
     public RegisterPage enterUserName(String firstName) {
@@ -50,10 +51,17 @@ public class RegisterPage {
         return this;
     }
 
-    public RegisterPage clickOnSubmitButton() {
-        ElementActions.clickElement(driver, this.submitButton);
+    public RegisterPage checkBoxButtom() {
+        ElementActions.clickElement(driver, checkBox);
         return this;
     }
+
+    public RegisterPage clickOnSubmitButton() {
+        System.out.println("test");
+        ElementActions.clickElement(driver, submitButton);
+        return this;
+    }
+
 
     //validations
     public String getMessage() {
@@ -61,8 +69,12 @@ public class RegisterPage {
     }
 
     public RegisterPage isRegistered() {
-
         Assert.assertEquals(getMessage(), "Your Account Has Been Created!");
+        return this;
+    }
+    public RegisterPage invalidRegister() {
+
+        Assert.assertEquals(getMessage(), "You Account Has Been Created!");
         return this;
     }
 }

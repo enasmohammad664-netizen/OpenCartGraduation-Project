@@ -28,7 +28,7 @@ public static WebElement waitElementToBeVisible(WebDriver driver,By locator){
 //wait element to be clickable
 
 public static WebElement waitElementToBeClickable(WebDriver driver,By locator){
-return new WebDriverWait(driver,Duration.ofSeconds(10)).
+return new WebDriverWait(driver,Duration.ofSeconds(20)).
         until(driver1 ->
         {
             WebElement element = waitElementToBeVisible(driver,locator);
