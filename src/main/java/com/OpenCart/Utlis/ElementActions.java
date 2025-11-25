@@ -2,6 +2,8 @@ package com.OpenCart.Utlis;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class ElementActions {
     private ElementActions() {
@@ -29,4 +31,16 @@ public class ElementActions {
 //        Scrolling.scrolling(driver, locator);
        return driver.findElement(locator).getText();
     }
+    // Open Dropdown (Static)
+    public static void openDropdown(WebDriver driver, By locator) {
+        Waits.waitElementToBeClickable(driver, locator);
+        WebElement element = driver.findElement(locator);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).click().perform();
+    }
+
+    public static boolean areElementsTextContains(WebDriver driver, By productPrices, String currencySymbol) {
+        return false;
+    }
 }
+

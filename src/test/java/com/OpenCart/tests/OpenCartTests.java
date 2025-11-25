@@ -72,6 +72,38 @@ public class OpenCartTests {
                 .verifyProductsAreDisplayed()
                 .verifySearchResult("iPhone");
     }
+    // Add to cart
+    @Test
+    public void addToCartValidProduct() {
+        new HomePage(driver)
+                .navigateToHomePage()
+                .searchForProduct("iPhone")       // البحث عن المنتج
+                .verifyProductsAreDisplayed()     //  المنتجات ظهرت؟
+                .verifySearchResult("iPhone")     // التحقق من الاسم
+                .addToCart()                      //  Add to Cart
+                .verifyAddToCartSuccess("iPhone"); // التحقق من الاضافة
+    }
+    // Remove from cart
+
+    @Test
+    public void removeFromCartValidProduct() {
+        new HomePage(driver)
+                .navigateToHomePage()
+                .searchForProduct("iPhone")        // البحث عن المنتج
+                .addToCart()                       // اضافة للعربة
+                .verifyAddToCartSuccess("iPhone")  //التحقق من الإضافة
+                .openCart()                        // فتح العربة
+                .removeFromCart()                   // حذف المنتج
+                .verifyRemoveFromCartSuccess("iPhone"); // التحقق من رسالة النجاح
+    }
+    //Change currency
+    @Test
+    public void changeCurrencyToEUR() {
+        new HomePage(driver)
+                .openCurrencyDropdown()
+                .selectCurrency("EUR")
+                .verifyCurrencyDisplayed("€");
+    }
 
 
 }

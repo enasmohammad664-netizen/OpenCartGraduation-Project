@@ -20,7 +20,10 @@ public class HomePage {
         private final By searchBox = By.name("search");
         private final By searchButton = By.cssSelector("button.btn.btn-default.btn-lg");
 
-        // ===== Navigation =====
+    public HomePage() {
+    }
+
+    // ===== Navigation =====
         public HomePage navigateToHomePage() {
             BrowserActions.navigateToUrl(driver, "https://demo.opencart.com/");
             return this;
@@ -34,7 +37,13 @@ public class HomePage {
         }
 
 
-
+    public ProductsPage openCurrencyDropdown() {
+        return null;
     }
+
+    public HomePage verifyCurrencyDisplayed(String €) {
+        return null;
+    }
+}
 
 
