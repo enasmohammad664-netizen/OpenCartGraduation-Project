@@ -104,6 +104,22 @@ public class OpenCartTests {
                 .selectCurrency("EUR")
                 .verifyCurrencyDisplayed("€");
     }
+    //Checkout
+    @Test
+    public void checkoutAsGuest() {
+        // Product was added in the previous steps
+        new CheckoutPage(driver)
+                .selectGuestCheckout()   //guest checkout option
+                .enterGuestDetails(
+                        "Enas", "Osman", "enas@gmail.com", "01012345678",
+                        "Nasr City", "Cairo", "11511", "Egypt", "Cairo"
+                )
+                .choosePaymentAndShipping() // Select payment and shipping method
+                .agreeToTerms()              // Agree to the terms and conditions
+                .confirmOrder()             // Confirm the order
+                .verifyOrderSuccess();       // Verify that the order was successful
+    }
+
 
 
 }
